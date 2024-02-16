@@ -29,13 +29,11 @@ class Comparator : AppCompatActivity() {
         val renderableSource = RenderableSource.builder()
             .setSource(
                 this,
-                Uri.parse(modelName),
+                Uri.parse("file:///android_asset/$modelName"), // Include the path to the models directory
                 RenderableSource.SourceType.GLB
             )
             .setRecenterMode(RenderableSource.RecenterMode.ROOT)
             .build()
-
-        var renderable: ModelRenderable? = null
 
         ModelRenderable.builder()
             .setSource(
@@ -44,40 +42,37 @@ class Comparator : AppCompatActivity() {
             )
             .build()
             .thenAccept { modelRenderable ->
-                renderable = modelRenderable // Store in a variable to reference later
+                // The model is now fully loaded, so we can attach it to the TransformableNode
+                val fragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment
+                fragment.setOnTapArPlaneListener { hitResult, _, _ ->
+                    val anchorNode = AnchorNode(hitResult.createAnchor())
+                    anchorNode.setParent(fragment.arSceneView.scene)
+
+                    val transformableNode = TransformableNode(fragment.transformationSystem)
+                    transformableNode.renderable = modelRenderable
+                    transformableNode.setParent(anchorNode)
+                    transformableNode.select()
+
+                    transformableNode.scaleController.minScale =  0.05f
+                    transformableNode.scaleController.maxScale =  1f
+
+                    transformableNode.setOnTapListener { _, _ ->
+                        val alertDialogBuilder = AlertDialog.Builder(this@Comparator)
+                        alertDialogBuilder.setTitle("Model Tapped")
+                        alertDialogBuilder.setMessage("The AR model has been successfully tapped.")
+
+                        alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
+                            dialog.dismiss()
+                        }
+                        val alertDialog = alertDialogBuilder.create()
+                        alertDialog.show()
+                    }
+                }
             }
             .exceptionally { throwable ->
                 // Log the exception or show an error message to the user
                 Log.e("Comparator", "Error loading model, something went wrong.", throwable)
                 null
             }
-
-        val fragment = supportFragmentManager.findFragmentById(R.id.ux_fragment) as ArFragment
-
-        fragment.setOnTapArPlaneListener { hitResult, _, _ ->
-            val anchorNode = AnchorNode(hitResult.createAnchor())
-            anchorNode.setParent(fragment.arSceneView.scene)
-
-            val transformableNode = TransformableNode(fragment.transformationSystem)
-            transformableNode.renderable = renderable
-            transformableNode.setParent(anchorNode)
-            transformableNode.select()
-
-            transformableNode.scaleController.minScale = 0.05f
-            transformableNode.scaleController.maxScale = 1f
-
-            transformableNode.setOnTapListener { _, _ ->
-                val alertDialogBuilder = AlertDialog.Builder(this@Comparator)
-                alertDialogBuilder.setTitle("Model Tapped")
-                alertDialogBuilder.setMessage("The AR model has been successfully tapped.")
-
-                alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
-                    dialog.dismiss()
-                }
-                val alertDialog = alertDialogBuilder.create()
-                alertDialog.show()
-            }
-        }
     }
 }
-

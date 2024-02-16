@@ -15,8 +15,6 @@ D
 app/build.gradle.kts,d\2\d2a4383452aad84a18429a5844d31330a012a9e6
 f
 6app/src/main/java/com/example/warp/models/ImageItem.kt,6\7\67a685f72341fbcefbbf7a0d4816d5349a87d483
-k
-;app/src/main/java/com/example/warp/adapters/SliderItem.java,0\f\0f856cde5523e7dd5616ef2d3cfa545bcdca5144
 n
 >app/src/main/java/com/example/warp/adapters/SliderAdapter.java,b\9\b9f32cd8a121cbe758dc35efeabda7305b01545f
 h
@@ -27,3 +25,7 @@ F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
 i
 9app/src/main/java/com/example/warp/models/SliderItem.java,e\2\e24f0aae12765aa6e5ebc561ef9148d67a199ebc
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+]
+-.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e

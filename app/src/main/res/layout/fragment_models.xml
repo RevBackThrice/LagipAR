@@ -101,5 +101,45 @@
         app:layout_constraintVertical_bias="0.456"
         tools:ignore="HardcodedText" />
 
+    <Button
+        android:id="@+id/buttonModelSeven"
+        android:layout_width="112dp"
+        android:layout_height="58dp"
+        android:text="Paldong"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/buttonModelEight"
+        android:layout_width="112dp"
+        android:layout_height="58dp"
+        android:text="Tongali"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/buttonModelNine"
+        android:layout_width="112dp"
+        android:layout_height="58dp"
+        android:text="Balingbing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.57"
+        tools:ignore="HardcodedText" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -3,6 +3,6 @@
     <string name="title_home">Models</string>
     <string name="title_dashboard">Categories</string>
     <string name="title_notifications">Notifications</string>
-
+    <string name="bottomdialog_text">I am a Bottom Dialog paragraph!</string>
 
 </resources>

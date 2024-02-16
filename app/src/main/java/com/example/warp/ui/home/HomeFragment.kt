@@ -19,12 +19,15 @@ class HomeFragment : Fragment() {
         val root = binding!!.root
 
         // Set up the button click listeners
-        binding!!.buttonModelOne.setOnClickListener { v -> openComparatorWithModel("neco_arc.glb") }
-        binding!!.buttonModelTwo.setOnClickListener { v -> openComparatorWithModel("Gangsa.glb") }
-        binding!!.buttonModelThree.setOnClickListener { v -> openComparatorWithModel("Pateteg.glb") }
-        binding!!.buttonModelFour.setOnClickListener { v -> openComparatorWithModel("Tongatong.glb") }
-        binding!!.buttonModelFive.setOnClickListener { v -> openComparatorWithModel("Flute_1.glb") }
-        binding!!.buttonModelSix.setOnClickListener { v -> openComparatorWithModel("Unknown1.glb") }
+        binding!!.buttonModelOne.setOnClickListener { _ -> openComparatorWithModel("neco_arc.glb") }
+        binding!!.buttonModelTwo.setOnClickListener { _ -> openComparatorWithModel("Gangsa.glb") }
+        binding!!.buttonModelThree.setOnClickListener { _ -> openComparatorWithModel("Pateteg.glb") }
+        binding!!.buttonModelFour.setOnClickListener { _ -> openComparatorWithModel("Tongatong.glb") }
+        binding!!.buttonModelFive.setOnClickListener { _ -> openComparatorWithModel("Flute_1.glb") }
+        binding!!.buttonModelSix.setOnClickListener { _ -> openComparatorWithModel("Unknown1.glb") }
+        binding!!.buttonModelSeven.setOnClickListener { _ -> openComparatorWithModel("Paldong.glb") }
+        binding!!.buttonModelEight.setOnClickListener { _ -> openComparatorWithModel("Tongali.glb") }
+        binding!!.buttonModelNine.setOnClickListener { _ -> openComparatorWithModel("Balingbing.glb") }
 
         return root
     }
